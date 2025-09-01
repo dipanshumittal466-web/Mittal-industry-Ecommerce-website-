@@ -11,13 +11,5 @@ const UserSchema = new Schema(
 );
 
 // ✅ Prevent recompiling issues in Next.js (Hot Reloading)
-const User = models.User || model("User" );
-
-export default User;import mongoose from "mongoose";
-const UserSchema = new mongoose.Schema({
-  name: String,
-  email: { type: String, unique: true },
-  password: String,
-  role: { type: String, default: "admin" }
-}, { timestamps: true });
+const User = models.User || model("User", UserSchema);
 export default mongoose.models.User || mongoose.model("User", UserSchema);
