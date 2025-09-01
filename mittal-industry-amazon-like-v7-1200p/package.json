@@ -6,7 +6,7 @@
     "dev": "next dev -p 3000",
     "build": "next build",
     "start": "next start -p 3000",
-    "seed": "ts-node --compiler-options '{"module":"commonjs"}' scripts/seed.ts",
+    "seed": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/seed.ts",
     "lint": "next lint"
   },
   "dependencies": {
