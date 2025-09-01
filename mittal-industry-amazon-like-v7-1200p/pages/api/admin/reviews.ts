@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import dbConnect from "@/lib/dbConnect";
 import Review from "@/models/Review";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/auth/[...nextauth]";
+import { authOptions } from "../auth/[...nextauth]";
 
 interface CustomSession {
   user?: {
