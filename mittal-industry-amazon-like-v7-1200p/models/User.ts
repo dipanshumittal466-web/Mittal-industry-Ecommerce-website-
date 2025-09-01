@@ -1,4 +1,4 @@
-import { Schema, model, models } from "mongoose";
+import mongoose { Schema, model, models } from "mongoose";
 
 const UserSchema = new Schema(
   {
@@ -12,4 +12,4 @@ const UserSchema = new Schema(
 
 // ✅ Prevent recompiling issues in Next.js (Hot Reloading)
 const User = models.User || model("User", UserSchema);
-export default User ;
+export default mongoose.models.User || mongoose.model("User", UserSchema);
