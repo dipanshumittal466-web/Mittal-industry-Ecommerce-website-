@@ -20,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   if (req.method === "GET") {
-    const reviews = await Reviewfind().sort({ createdAt: -1 });
+    const reviews = await Review.find().sort({ createdAt: -1 });
     return res.status(200).json(reviews);
   }
 
