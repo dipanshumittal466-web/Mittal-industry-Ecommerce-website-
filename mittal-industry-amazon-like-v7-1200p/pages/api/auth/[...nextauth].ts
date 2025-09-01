@@ -17,7 +17,7 @@ export const authOptions: NextAuthOptions = {
 
         await dbConnect();
 
-        const user = await User.findOne({ email: credentials.email });
+        const user = await User({ email: credentials.email });
         if (!user) return null;
 
         const isValid = await compare(credentials.password, user.password);
