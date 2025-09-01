@@ -1,12 +1,27 @@
-import mongoose from "mongoose";
-const OrderSchema = new mongoose.Schema({
-  userName: String,
-  userEmail: String,
-  userPhone: String,
-  address: String,
-  pincode: String,
-  products: [{ productId: String, name: String, price: Number, quantity: Number }],
-  totalAmount: Number,
-  status: { type: String, default: "pending" }
-}, { timestamps: true });
-export default mongoose.models.Order || mongoose.model("Order", OrderSchema);
+import mongoose, { Schema, Document, Model } from "mongoose";
+
+export interface IOrder extends Document {
+  userEmail: string;
+  userName: string;
+  productId: string;
+  quantity: number;
+  status: "pending" | "shipped" | "delivered";
+  totalAmount: number;
+}
+
+const OrderSchema: Schema<IOrder> = new Schema(
+  {
+    userEmail: { type: String, required: true },
+    userName: { type: String, required: true },
+    productId: { type: String, required: true },
+    quantity: { type: Number, required: true },
+    status: { type: String, enum: ["pending", "shipped", "delivered"], default: "pending" },
+    totalAmount: { type: Number, required: true },
+  },
+  { timestamps: true }
+);
+
+const Order: Model<IOrder> =
+  mongoose.models.Order || mongoose.model<IOrder>("Order", OrderSchema);
+
+export default Order;
