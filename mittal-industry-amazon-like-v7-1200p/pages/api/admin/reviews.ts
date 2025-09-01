@@ -10,5 +10,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method === "GET"){ const reviews = await Review.find().sort({ createdAt:-1 }); return res.status(200).json(reviews); }
   if (req.method === "PATCH"){ const { id, status } = req.body as { id:string; status:"pending"|"approved" }; const updated = await Review.findByIdAndUpdate(id, { status }, { new:true }); return res.status(200).json(updated); }
   if (req.method === "DELETE"){ const { id } = req.query as { id:string }; await Review.findByIdAndDelete(id); return res.status(200).json({ message:"Deleted" }); }
-  res.status(405).json({ error:"Method not allowed" });
+ return res.status(405).json({ error:"Method not allowed" });
 }
