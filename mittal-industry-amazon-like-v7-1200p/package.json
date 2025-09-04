@@ -6,9 +6,9 @@
     "dev": "next dev -p 3000",
     "build": "next build",
     "start": "next start -p 3000",
-    "seed": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/seed.ts",
+    "seed": "ts-node --compiler-options '{\"module\":\"commonjs\"}' mittal-industry-amazon-like-v7-1200p/scripts/seed.ts",
     "lint": "next lint",
-    "postinstall": "npm run seed"
+    "postinstall": "tsc"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
