@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start -p 3000",
     "seed": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/seed.ts",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "tsc"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -18,12 +19,14 @@
     "nodemailer": "^6.9.13",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "twilio": "^5.3.1"
+    "twilio": "^5.3.1",
+    "typescript": "^5.5.3",
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
     "@types/node": "^20.14.10",
-    "@types/react": "^18.3.3",
+    "@types/react": "^18.3.3"
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3"
   }
