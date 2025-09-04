@@ -8,7 +8,7 @@
     "start": "next start -p 3000",
     "seed": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/seed.ts",
     "lint": "next lint",
-    "postinstall": "tsc"
+    "postinstall": "npm run seed"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
